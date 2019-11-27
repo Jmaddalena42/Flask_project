@@ -13,7 +13,7 @@
 <body>
     <div class="jumbotron text-center">
         <h1 class="text-center">Mission To Mars</h1>
-        <p><a class="text-center" style="height: 50;width: 1000;"><button class="btn btn-primary text-center text-white" href="/scrape" role="button">Scrape new data</a></p>
+        <p><a class="text-center" style="height: 50;width: 1000;"><button class="btn btn-primary text-center text-white" href="/scrape" role="button">Start Scrape</a></p>
     </div>
     <div>
         <div class="container">
@@ -44,41 +44,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-0">
-                    <h4 class="text-center">Featured Image</h4>
-                    <img src={{mars.featured_image_url}} alt="featured image" style="width:70%"></div>
+                    <h4 class="text-center">Featured Image</h4><img>
+                    <img src="{{mars.featured_image_url}}" alt="featured image" style="width:70%">
+                </div>
                 <div class="col-md-5 offset-md-1">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>description</th>
-                                    <th>value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Cell 1</td>
-                                    <td>Cell 2</td>
-                                </tr>
-                                <tr>
-                                    <td>Cell 3</td>
-                                    <td>Cell 4</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div></div>
+                    <h4 class="text-center">Mars Facts</h4>
+                    {{mars.facts_html|safe}}
                 </div>
             </div>
         </div>
     </div>
-    <div class="card-group">
-        <div class="card"></div>
-    </div>
-    <div class="card-group">
-        <div class="card"><img  src={{mars.hem_image_urls[0].img_url}} width ="100%" class="card-img-top w-100 d-block">
-            <img src={{mars.hem_image_urls[1].img_url}} width ="100%" class="card-img-bottom w-100 d-block"></div>
-        <div class="card"><img src={{mars.hem_image_urls[3].img_url}} width ="100%" class="card-img-top w-100 d-block">
-            <img src={{mars.hem_image_urls[4].img_url}} width ="100%" class="card-img-bottom w-100 d-block"></div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><img>
+                    <img src={{mars.hemi_image_urls[0].img_url}} width ="50%"/>
+                    <div class="caption">
+                        <p>{{mars.hemi_image_urls[0].title}}</p></div>
+                <div class="col-md-3"><img>
+                    <img src={{mars.hemi_image_urls[1].img_url}} width ="50%"/>
+                    <div class="caption">
+                        <p>{{mars.hemi_image_urls[1].title}}</p></div>
+                <div class="col-md-3"><img>
+                    <img src={{mars.hemi_image_urls[2].img_url}} width ="50%"/>
+                    <div class="caption">
+                        <p>{{mars.hemi_image_urls[2].title}}</p></div>
+                <div class="col-md-3"><img>
+                    <img src={{mars.hemi_image_urls[3].img_url}} width ="50%"/>
+                    <div class="caption">
+                        <p>{{mars.hemi_image_urls[3].title}}</p></div>
+            </div>
+        </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
