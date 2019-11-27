@@ -2,107 +2,86 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Mission to Mars</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Mars</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Card-Deck.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <div class="container">
-
-        <!-- Jumbotron -->
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Mission to Mars</h1>
-            <a class="btn btn-lg text-white" style="background-color:blue;" href="/scrape" role="button">Scrape </a>
-        </div>
-
-        <!-- News Section -->
-        <div class="container">
-            <h3>Latest Mars News</h3>
-            <h6>{{ mars.news_title }}</h6>
-            <p>{{ mars.news_p }}</p>
-        </div>
-
+    <div class="jumbotron text-center">
+        <h1 class="text-center">Mission To Mars</h1>
+        <p><a class="text-center" style="height: 50;width: 1000;"><button class="btn btn-primary text-center text-white" href="/scrape" role="button">Scrape new data</a></p>
+    </div>
+    <div>
         <div class="container">
             <div class="row">
-                <!-- Left Image-->
-                <div class="col-lg-8 col-md-8 col-sm-12">
-                    <h3>Featured Mars Image</h3>
-                    <img src="{{ mars.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{mars.news_title}}</h4>
+                            <p class="card-text">{{mars.news_p}}</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Weather Card -->
-                <div class="col-lg-4 col-md-4 col-sm-12">
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body text-white bg-dark">
-                            <h6 class="card-title">Current Weather on Mars</h6>
-                            <p class="card-text">{{ mars.mars_weather }}</p>
-                        </div>
-
-                    </div>
-
-                    <!-- Table -->
-                    <br>
-                    <h3>Mars Facts</h3>
-                    <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
-                        {{ mars.facts_html|safe}}
-                    </div>
-                    <div class="row margin-top-10">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-md-10">
-                          <div id="table-area" class="">
-                            <table id="table" class="table table-striped">
-                              <thead>
-                                <tr>
-                                  <th class="table-head">description</th>
-                                  <th class="table-head">value</th>
-
-                                </tr>
-                              </thead>
-                              <tbody></tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div> <!-- col4 -->
-            </div><!-- Row -->
-        </div><!-- Container -->
-
-        <!-- Cards -->
-        <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
-        <div class="card-deck">
-            <hr>
-            <div class="col-md-12">
-                <div class="row">
-                    {% for h3_soup in mars.hemi_image_urls %}
-                    <div class="col-md-6">
-                        <div class="card text-white bg-dark" style="margin: 30px;">
-                            <img class="card-img-top" src="{{ item.img_url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{ h3_soup.title }}</p>
-                            </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Mars Weather</h4>
+                            <p class="card-text">{{mars.mars_weather}}</p>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div><!-- Close main container -->
-
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script src="/app.py"></script>
-        <script src="/scrape.py"></script>
-
+        </div>
+    </div>
+    <div class="container">
+        <div class="card"></div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-0">
+                    <h4 class="text-center">Featured Image</h4>
+                    <img src={{mars.featured_image_url}} alt="featured image" style="width:70%"></div>
+                <div class="col-md-5 offset-md-1">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>description</th>
+                                    <th>value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cell 1</td>
+                                    <td>Cell 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Cell 3</td>
+                                    <td>Cell 4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-group">
+        <div class="card"></div>
+    </div>
+    <div class="card-group">
+        <div class="card"><img  src={{mars.hem_image_urls[0].img_url}} width ="100%" class="card-img-top w-100 d-block">
+            <img src={{mars.hem_image_urls[1].img_url}} width ="100%" class="card-img-bottom w-100 d-block"></div>
+        <div class="card"><img src={{mars.hem_image_urls[3].img_url}} width ="100%" class="card-img-top w-100 d-block">
+            <img src={{mars.hem_image_urls[4].img_url}} width ="100%" class="card-img-bottom w-100 d-block"></div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
