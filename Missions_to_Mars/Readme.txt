@@ -1,0 +1,1 @@
+Here I use a Flask app and BeautifulSoup to scrape the mars.nasa.gov website. You need to open a terminal and execute app.py and post your local host address in the search engine in order for this to run.
